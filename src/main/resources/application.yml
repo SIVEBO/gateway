@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: ms-sucursales
+          uri: lb://ms_sucursales
+          predicates:
+            - Path=/api/v1/sucursales/**, /api/v1/comunas/**, /api/v1/regiones/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

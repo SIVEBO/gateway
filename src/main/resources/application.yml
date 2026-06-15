@@ -9,7 +9,7 @@ spring:
     gateway:
       routes:
         - id: ms-sucursales
-          uri: lb://ms_sucursales
+          uri: lb://MS_SUCURSALES
           predicates:
             - Path=/api/v1/sucursales/**, /api/v1/comunas/**, /api/v1/regiones/**
 

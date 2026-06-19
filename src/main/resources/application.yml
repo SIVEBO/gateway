@@ -13,6 +13,21 @@ spring:
           predicates:
             - Path=/api/v1/sucursales/**, /api/v1/comunas/**, /api/v1/regiones/**
 
+        - id: ms-embalaje
+          uri: lb://MS_EMBALAJE
+          predicates:
+            - Path=/api/articulos/**, /api/categorias/**, /api/stock/**
+
+        - id: ms-finanzas
+          uri: lb://MS_FINANZAS
+          predicates:
+            - Path=/api/cajas/**, /api/aperturas/**, /api/movimientos/**
+
+        - id: ms-paquetes
+          uri: lb://MS_PAQUETES
+          predicates:
+            - Path=/api/inventario/**
+
 eureka:
   client:
     service-url:

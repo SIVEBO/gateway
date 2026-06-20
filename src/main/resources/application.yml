@@ -7,26 +7,58 @@ spring:
 
   cloud:
     gateway:
-      routes:
-        - id: ms-sucursales
-          uri: lb://MS_SUCURSALES
-          predicates:
-            - Path=/api/v1/sucursales/**, /api/v1/comunas/**, /api/v1/regiones/**
+      server:
+        webmvc:
+          routes:
+            - id: ms-sucursales
+              uri: lb://MS_SUCURSALES
+              predicates:
+                - Path=/api/v1/sucursales/**, /api/v1/comunas/**, /api/v1/regiones/**
 
-        - id: ms-embalaje
-          uri: lb://MS_EMBALAJE
-          predicates:
-            - Path=/api/articulos/**, /api/categorias/**, /api/stock/**
+            - id: ms-embalaje
+              uri: lb://MS_EMBALAJE
+              predicates:
+                - Path=/api/v1/articulos/**, /api/v1/categorias/**, /api/v1/stock/**
 
-        - id: ms-finanzas
-          uri: lb://MS_FINANZAS
-          predicates:
-            - Path=/api/cajas/**, /api/aperturas/**, /api/movimientos/**
+            - id: ms-finanzas
+              uri: lb://MS_FINANZAS
+              predicates:
+                - Path=/api/v1/cajas/**, /api/v1/aperturas/**, /api/v1/movimientos/**
 
-        - id: ms-paquetes
-          uri: lb://MS_PAQUETES
-          predicates:
-            - Path=/api/inventario/**
+            - id: ms-paquetes
+              uri: lb://MS_PAQUETES
+              predicates:
+                - Path=/api/v1/inventario/**
+
+            - id: ms-auth
+              uri: lb://MS_AUTH
+              predicates:
+                - Path=/api/v1/auth/**, /api/v1/roles/**, /api/v1/usuarios/**
+
+            - id: ms-admision
+              uri: lb://MS_ADMISION
+              predicates:
+                - Path=/api/v1/admisiones/**
+
+            - id: ms-clientes
+              uri: lb://MS_CLIENTES
+              predicates:
+                - Path=/api/v1/clientes/**, /api/v1/tipos-documento/**
+
+            - id: ms-portal
+              uri: lb://MS_PORTAL
+              predicates:
+                - Path=/api/v1/consultas/**, /api/v1/feedbacks/**
+
+            - id: ms-ventas
+              uri: lb://MS_VENTAS
+              predicates:
+                - Path=/api/v1/ventas/**, /api/v1/detalles/**
+
+            - id: ms-tracking
+              uri: lb://MS_TRACKING
+              predicates:
+                - Path=/api/v1/guias/**, /api/v1/historial/**
 
 eureka:
   client:

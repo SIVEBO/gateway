@@ -57,7 +57,7 @@ class GatewayApplicationTests {
 			.findFirst()
 			.orElseThrow();
 
-		assertEquals(URI.create("lb://MS_SUCURSALES"), route.getUri());
+		assertEquals(URI.create("lb://MS-SUCURSALES"), route.getUri());
 		String predicateArgs = route.getPredicates().get(0).getArgs().toString();
 		assertTrue(predicateArgs.contains("/api/v1/sucursales/**"));
 	}

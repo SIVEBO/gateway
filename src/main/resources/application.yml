@@ -14,51 +14,71 @@ spring:
               uri: lb://MS-SUCURSALES
               predicates:
                 - Path=/api/v1/sucursales/**, /api/v1/comunas/**, /api/v1/regiones/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-embalaje
               uri: lb://MS-EMBALAJE
               predicates:
                 - Path=/api/v1/articulos/**, /api/v1/categorias/**, /api/v1/stock/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-finanzas
               uri: lb://MS-FINANZAS
               predicates:
                 - Path=/api/v1/cajas/**, /api/v1/aperturas/**, /api/v1/movimientos/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-paquetes
               uri: lb://MS-PAQUETES
               predicates:
                 - Path=/api/v1/inventario/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-auth
               uri: lb://MS-AUTH
               predicates:
                 - Path=/api/v1/auth/**, /api/v1/roles/**, /api/v1/usuarios/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-admision
               uri: lb://MS-ADMISION
               predicates:
                 - Path=/api/v1/admisiones/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-clientes
               uri: lb://MS-CLIENTES
               predicates:
                 - Path=/api/v1/clientes/**, /api/v1/tipos-documento/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-portal
               uri: lb://MS-PORTAL
               predicates:
                 - Path=/api/v1/consultas/**, /api/v1/feedbacks/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-ventas
               uri: lb://MS-VENTAS
               predicates:
                 - Path=/api/v1/ventas/**, /api/v1/detalles/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
             - id: ms-tracking
               uri: lb://MS-TRACKING
               predicates:
                 - Path=/api/v1/guias/**, /api/v1/historial/**
+              filters:
+                - AddResponseHeader=X-Served-By, SIVEBO-Gateway
 
 eureka:
   client:
